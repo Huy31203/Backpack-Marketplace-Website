@@ -1,5 +1,6 @@
 export default function AmountProducts() {
-  let lists = JSON.parse(localStorage.getItem("CartList"));
+  let lists = [{}];
+  lists = JSON.parse(localStorage.getItem("CartList"));
   if (lists.length == 0 || lists === null) {
     document.querySelector(".product-number-wrapper").style.display = "none";
   } else {
