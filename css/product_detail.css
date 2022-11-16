@@ -8,6 +8,10 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
+a:visited {
+    color: black;
+}
+
 /* PRODUCT DETAIL*/
 
 .product-detail {
@@ -123,8 +127,9 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
 }
 
-.product-details__add-btn:hover {
+.product-details__add-btn:active {
     color: white;
+    transition-duration: 10ms;
     background-color: rgb(66, 253, 97);
     ;
 }

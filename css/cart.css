@@ -174,15 +174,17 @@ th {
     color: rgb(255, 0, 0);
 }
 
-.cart-list__cont-shoping-wrapper:hover,
-.cart-list__clear-cart-wrapper:hover,
-.cart-list__checkout-wrapper:hover {
+.cart-list__cont-shoping-wrapper:active,
+.cart-list__clear-cart-wrapper:active,
+.cart-list__checkout-wrapper:active {
     background-color: rgb(104, 224, 93);
+    transition-duration: 10ms;
 }
 
 
-.cart-list__checkout-wrapper:hover {
+.cart-list__checkout-wrapper:active {
     color: white;
+    transition-duration: 10ms;
     border: 1px solid transparent;
 }
 
