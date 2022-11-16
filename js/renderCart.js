@@ -89,6 +89,9 @@ function clearCart() {
   localStorage.setItem("CartList", JSON.stringify(cartLists));
   renderCartList(cartLists);
   AmountProducts();
+  if (cartLists === null || cartLists.length == 0) {
+    ProductCartHeaderPlace.innerHTML = "";
+  }
 }
 
 function totalMoney() {
