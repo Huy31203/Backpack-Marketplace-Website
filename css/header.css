@@ -1,0 +1,607 @@
+
+html {
+    scroll-behavior: smooth
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(221, 219, 219);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: black;
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+}
+
+
+/* NAVIGATION */
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.nav__list {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(0, 0, 0);
+    width: 100%;
+}
+
+nav {
+    flex-shrink: 0;
+}
+
+.nav__item {
+    font-size: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.nav__item a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav__item a:hover {
+    color: rgb(104, 224, 93);
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    background-color: black;
+    justify-content: space-evenly;
+}
+
+.logo-image {
+    overflow: hidden;
+    padding-left: 1em;
+}
+
+.nav__list .search-container {
+    /* float: right; */
+    display: flex;
+    max-height: 40px;
+}
+
+.nav__list .search-inp {
+    padding: 10px;
+    /* margin-top: 2.3em; */
+    font-size: 17px;
+    border: none;
+    outline: none;
+    margin-right: 2px;
+    width: 15vw;
+}
+
+.nav__list .search-container .search-btn {
+    padding: 6px 10px;
+    background: rgb(0, 0, 0);
+    color: white;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10%;
+}
+
+.nav__list .search-container .search-btn:hover {background: rgb(88, 88, 88)}
+
+#main-img {
+    width: 100%;
+    height: 140vh;
+    opacity: 93%;
+}
+
+.login-btn {
+    background-color: rgb(221, 219, 219);
+    color: black;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.login-btn-text-wrapper {
+    display: flex;
+}
+
+.fa-user {
+    padding-right: .5em;
+}
+
+.login {
+    position: relative;
+    display: inline-block;
+}
+
+.login-form {
+    display: none;
+    position: absolute;
+    /* background-image: linear-gradient(to right, rgba(73, 88, 218, 0.747), rgba(223, 52, 186, 0.76)); */
+    background-color: rgb(228, 228, 228);
+    z-index: 2;
+    border-radius: 2%;
+    box-shadow: -2px -2px 5px -4px;
+}
+
+.login-form::before {
+    content: "";
+    position: absolute;
+    width: 20em;
+    height: 21em;
+    top: 0;
+    left: -12%;
+    z-index: -1;
+}
+
+.login-form::after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: -4%;
+    left: 25%;
+    transform: rotate(45deg);
+    background-color: rgba(228, 228, 228, 0.9);
+    border-bottom: 4px solid transparent;
+    border-right: 4px solid transparent;
+    z-index: -2;
+}
+
+.login-btn:hover {
+    color: rgb(104, 224, 93);
+}
+
+.login:hover .login-form {
+    display: block;
+    visibility: visible;
+}
+
+#signin-form,
+#signup-form {
+    display: block;
+}
+
+.toggle__list {
+    display: flex;
+    justify-content: right;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.navbar-brand {
+    height: 100%;
+}
+
+.toggle {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.toggle__item {
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+.toggle a {
+    display: block;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 1em;
+    text-decoration: none;
+}
+
+.toggle .mobilenav__link {
+    color: white;
+}
+
+.toggle a:hover {
+    color: rgb(104, 224, 93);
+}
+
+#sign-in {
+    color: rgb(0, 0, 0);
+    border: 0;
+    min-width: 15em;
+    min-height: 10em;
+    padding-top: 1em;
+    /* padding-bottom: 1em; */
+    position: relative;
+    display: block;
+}
+
+#sign-up {
+    color: rgb(0, 0, 0);
+    border: 0;
+    min-width: 15em;
+    min-height: 10em;
+    position: relative;
+    display: none;
+}
+
+#forgot-pass {
+    display: block;
+    /* padding-top: .5em; */
+}
+
+.form-name {
+    position: absolute;
+    right: 10%;
+    color: rgb(33, 189, 59);
+}
+
+#user-inp {
+    animation: none;
+    transition-duration: 300ms;
+    transition-property: background-color;
+}
+
+#pass-inp {
+    animation: none;
+    transition-duration: 200ms;
+    transition-property: background-color;
+}
+
+#user-inp,
+#user-signup-inp {
+    padding-top: .5em;
+    padding-bottom: .5em;
+    padding-left: .5em;
+    padding-right: 2em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    background-color: white;
+    transition-duration: 300ms;
+    transition-property: background-color;
+    border: none;
+    color: rgb(0, 0, 0);
+}
+
+
+#pass-inp,
+#pass-signup-inp {
+    padding-top: .5em;
+    padding-bottom: .5em;
+    padding-left: .5em;
+    padding-right: 2em;
+    margin-top: 1em;
+    margin-bottom: 1.5em;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    color: rgb(0, 0, 0)
+}
+
+#user-inp:focus,
+#pass-inp:focus,
+#user-signup-inp:focus,
+#pass-signup-inp:focus {
+    background-color: rgb(214, 255, 180);
+    outline: none;
+}
+
+#login-submit,
+#sign-up-submit {
+    background-color: transparent;
+    color: rgb(11, 138, 0);
+    width: 5em;
+    height: 3em;
+    border: 1px solid;
+    cursor: pointer;
+}
+
+#login-submit {
+    margin-left: 1.5em;
+    margin-right: .5em;
+}
+
+#sign-up-submit {
+    /* margin-right: .5em; */
+    margin-bottom: 1em;
+}
+
+
+
+#login-submit:hover,
+#sign-up-submit:hover {
+    background-color: rgb(66, 253, 97);
+    color: rgb(255, 255, 255);
+    border-radius: 5%;
+    border-color: rgb(66, 253, 97);
+    transition-duration: 500ms;
+}
+
+
+.forgot-pass {
+    margin-top: -1em;
+    margin-bottom: .5em;
+}
+
+#signup-btn,
+#signin-btn {
+    background-color: transparent;
+    color: rgb(11, 138, 0);
+    margin-right: 1.5em;
+    margin-left: .5em;
+    width: 5em;
+    height: 3em;
+    border: 1px solid;
+    cursor: pointer;
+}
+
+#signin-btn {
+    margin-left: 1.3em;
+}
+
+#signup-btn:hover,
+#signin-btn:hover {
+    background-color: rgb(66, 253, 97);
+    color: rgb(255, 255, 255);
+    border-radius: 5%;
+    border-color: rgb(66, 253, 97);
+    transition-duration: 500ms;
+}
+
+.fa-bars {
+    cursor: pointer;
+    margin-left: 1em;
+    display: none;
+}
+
+.toggle {
+    position: relative;
+}
+
+.fa-right-from-bracket {
+    padding-right: .3em;
+}
+
+.log-out {
+    min-width: 8rem;
+    min-height: 3rem;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    display: none;
+    z-index: 2;
+}
+
+.log-out:hover {
+    background-color: rgb(66, 253, 97);
+    color: white;
+    transition-duration: 300ms;
+}
+
+.log-out::before {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: -4%;
+    left: 26%;
+    transform: rotate(45deg);
+    background-color: rgb(228,228,228,228, 0.7);
+    z-index: -1;
+}
+
+.log-out:hover:before {
+    background-color: rgb(66, 253, 97, 0.7);
+    transition-duration: 300ms;
+}
+
+.nav__link {
+    position: relative;
+}
+
+.product-number-wrapper {
+    position: absolute;
+    width: 1.4em;
+    height: 1.4em;
+    top: 5%;
+    right: 0;
+    background-color: red;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding-top: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 50px;
+}
+
+.product-number {
+    color: white;
+    font-size: 0.8em;
+    font-weight: bolder;
+}
+
+.mobilenav__list {
+    background-color: rgb(47, 47, 47);
+    width: 30%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    transform: translateX(-100%);
+    transition-duration: 500ms;
+    transition-property: transform;
+    z-index: 3;
+    /* overflow-x:hidden; */
+    overflow-y: auto;
+    white-space: nowrap;
+}
+
+.mobilenav__item,
+.mobilenav__item-x {
+    /* margin-top: 1.5em;
+    margin-bottom: 1.5em; */
+    border: 1px solid grey;
+    display: block;
+}
+
+.mobilenav__item {
+    font-size: 2.5vw;
+    height: 19vh;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.mobilenav__item-x {
+    font-size: 3vw;
+    height: 11vh;
+    padding-top: 2.65vh;
+    padding-bottom: 2.65vh;
+}
+
+.fa-xmark {
+    color: grey;
+    cursor: pointer;
+    margin-left: 46%;
+    display: block;
+    width: 2vw;
+}
+
+.fa-bars:hover {
+    color: rgb(66, 253, 97);
+    transition-duration: 500ms;
+}
+
+.fa-xmark:hover {
+    color: rgb(66, 253, 97);
+    transition-duration: 500ms;
+}
+
+.bg-blur {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    position: fixed;
+    display: none;
+    opacity: 30%;
+    /* transition-delay: 500ms; */
+    z-index: 1;
+}
+
+.mobilenav-open .mobilenav__list {
+    transform: translateX(0%);
+}
+
+.mobilenav-open .bg-blur {
+    position: fixed;
+    display: flex;
+    width: 100%;
+}
+
+.backontop {
+    display: none;
+    padding: .5em;
+    background: rgba(131, 131, 131, 0.178);
+    outline: .2em solid rgb(66, 253, 97);
+    color: rgb(66, 253, 97);
+    border: 0;
+    border-radius: .6em;
+    cursor: pointer;
+    position: fixed;
+    right: 1.5em;
+    bottom: 1.5em;
+    width: 2.5em;
+    height: 2.5em;
+    z-index: 1000;
+    opacity: .8;
+    padding: 5px 5px 3px 5px;
+}
+
+@media only screen and (max-width: 1150px) {
+    .nav__item {
+        display: none;
+    }
+
+    .fa-bars {
+        display: block;
+    }
+}

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="vi">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Huy's Porfolio Website">
+    <meta name="author" content="Huy(Lolis)">
+    <meta property="og:image" content="img/thumbnail.jpg" />
+    <link rel="icon" type="image/x-icon" href="img/web-icon.svg">
+    <title>Website kinh doanh các mặt hàng balo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/cart.css">
+</head>
+
+<body>
+    <header>
+        <div class="bg-blur"></div>
+        <div class="toggle">
+            <i class="navOn fa-solid fa-bars fa-2x"></i>
+            <ul class="mobilenav__list">
+                <li class="mobilenav__item-x"><i class="navOff fa-solid fa-xmark"></i></li>
+                <li class="mobilenav__item"><a href="main_page.html" class="mobilenav__link">Trang Chủ</a></li>
+                <li class="mobilenav__item"><a href="all_backpack.html" class="mobilenav__link">Balo</a></li>
+                <li class="mobilenav__item"><a href="female_backpack.html" class="mobilenav__link">Balo Nữ</a></li>
+                <li class="mobilenav__item"><a href="male_backpack.html" class="mobilenav__link">Balo Nam</a></li>
+                <li class="mobilenav__item"><a href="#contact" class="mobilenav__link">Liên hệ</a></li>
+            </ul>
+            <ul class="toggle__list">
+                <li class="toggle__item">
+                    <div class="login" tabindex="999">
+                        <button class="login-btn" tabindex="999">
+                            <span class="login-btn-text-wrapper">
+                                <i class="fa-solid fa-user"></i>
+                                <p id="login-btn-text">Login/Sign up</p>
+                            </span>
+                        </button>
+                        <div class="login-form" tabindex="999">
+                            <form id="signin-form" tabindex="999" onSubmit="return false" action="">
+                                <fieldset id="sign-in"><br>
+                                    <label id="user-lb" for="user">Username</label><br>
+                                    <input id="user-inp" id="user" autocomplete="off" type="text" name="Username"
+                                        required="" oninvalid="this.setCustomValidity('Please Enter Username')"
+                                        oninput="setCustomValidity('')">
+                                    <label id="pass-lb" for="pass">Password</label><br>
+                                    <input id="pass-inp" id="pass" type="password" name="Password" required=""
+                                        oninvalid="this.setCustomValidity('Please Enter Password')"
+                                        oninput="setCustomValidity('')" pattern="*">
+                                    <button id="login-submit">Log in</button>
+                                    <button id="signup-btn">Sign up</button>
+                                    <p class="forgot-pass">
+                                    </p>
+                                </fieldset>
+                                <span id="forgot-pass">
+                                    <a href="">Forgot your password?</a>
+                                </span>
+                            </form>
+                            <form id="signup-form" onSubmit="return false" action="">
+                                <fieldset id="sign-up"><br>
+                                    <span class="form-name">Sign up</span>
+                                    <label id="user-lb" for="user">Username</label><br>
+                                    <input id="user-signup-inp" id="user" autocomplete="off" type="text" name="Username"
+                                        required="" oninvalid="this.setCustomValidity('Please Enter Username')"
+                                        oninput="setCustomValidity('')" pattern="*">
+                                    <label id="pass-lb" for="pass">Password</label><br>
+                                    <input id="pass-signup-inp" id="pass" type="password" name="Password" required=""
+                                        oninvalid="this.setCustomValidity('Please Enter Password')"
+                                        oninput="setCustomValidity('')" pattern="*">
+                                    <button id="signin-btn">Sign in</button>
+                                    <button id="sign-up-submit">Sign
+                                        up</button>
+                                </fieldset>
+                            </form>
+                            <div class="log-out"><i class="fa-solid fa-right-from-bracket"></i>Log
+                                out</div>
+                        </div>
+                    </div>
+                </li>
+                <li class="toggle__item"><a href="cart.html" class="nav__link">
+                    <div class="product-number-wrapper">
+                        <span class="product-number">3</span>
+                    </div>
+                    <i class="fa-solid fa-cart-shopping"></i>Giỏ
+                    hàng
+                </a></li>
+            </ul>
+        </div>
+        <div class="nav-container">
+            <a class="navbar-brand" href="main_page.html">
+                <div class="logo-image">
+                    <img src="img/logo-no-bg.png" class="img-fluid">
+                </div>
+            </a>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="main_page.html" class="nav__link">Trang Chủ</a></li>
+                    <li class="nav__item"><a href="all_backpack.html" class="nav__link">Balo</a></li>
+                    <li class="nav__item"><a href="female_backpack.html" class="nav__link">Balo Nữ</a></li>
+                    <li class="nav__item"><a href="male_backpack.html" class="nav__link">Balo Nam</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Liên hệ</a></li>
+                    <li class="search-container">
+                        <input class="search-inp" type="text" placeholder="   Search.." name="search">
+                        <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <button class="backontop" title="Go to top">
+            <i id="backontop-logo" class="fa fa-angle-up fa-2xl"></i>
+        </button>
+    </header>
+
+
+    <!-- Products -->
+    <section class="cart-section">
+        <div class="type">
+            <h1>Your shoping cart</h1>
+        </div>
+        <div class="cart-list__wrapper">
+            <table class="cart-list__table">
+                <thead>
+                    <tr class="cart-list__heading">
+                        <th>image</th>
+                        <th>product name</th>
+                        <th>price</th>
+                        <th>Quantity</th>
+                        <th>edit</th>
+                    </tr>
+                </thead>
+                <tbody id="product-place"></tbody>
+            </table>
+        </div>
+    </section>
+    <section class="cart-list__footer">
+        <div class="cart-list__control-wrapper">
+            <a href="all_backpack.html"><div class="cart-list__cont-shoping-wrapper">
+                <div class="cart-list__cont-shoping">Continue shopping</div>
+            </div></a>
+            <div class="cart-list__clear-cart-wrapper">
+                <div class="cart-list__clear-cart">Clear cart</div>
+            </div>
+        </div>
+        <div class="cart-list__payment-wrapper">
+            <div class="cart-list__total">Total:
+                <span class="cart-list__total-money"></span><span class="currency total">đ</span>
+            </div>
+            <div class="cart-list__checkout-wrapper">
+                <div class="cart-list__checkout">Proceed to Checkout</div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-head">
+            <div class="logo-wrapper">
+                <img class="logo-image" src="img/logo-no-bg.png" alt="" width="250vw" height="120vh">
+            </div>
+            <div class="advise-wrapper">
+                <h1 class="advise-text">Hỗ trợ tư vấn sản phẩm</h1>
+            </div>
+            <div class="phone-num-wrapper">
+                <div class="phone-num">088.996.6850</div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <ul>
+                <li class="address">
+                    <span class="icon-wrapper">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </span>
+                    <a href="https://goo.gl/maps/RvJPjr1VT7WER3iB8" target="_blank"> 26 Đỗ Quang Đẩu, P.Phạm Ngũ Lão,
+                        Q.1, HCM</a>
+                </li>
+                <li class="phone-num-bottom">
+                    <span class="icon-wrapper">
+                        <i class="fa-solid fa-phone"></i>
+                    </span>
+                    <a href="tel:088.996.6850"> 088.996.6850</a>
+                </li>
+            </ul>
+            <ul>
+                <li class="facebook">
+                    <span class="icon-wrapper">
+                        <i class="fa-brands fa-facebook"></i>
+                    </span>
+                    <a href="https://www.facebook.com/lolis312/" target="_blank"> Phúc Huy</a>
+                </li>
+                <li class="mail">
+                    <span class="icon-wrapper">
+                        <i class="fa-regular fa-envelope"></i>
+                    </span>
+                    <a href="mailto:nghuy31203@gmail.com"> nghuy31203@gmail.com</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <script type="module" src="js/login.js"></script>
+    <script type="module" src="js/main_page.js"></script>
+    <script type="module" src="js/renderCart.js"></script>
+</body>
+
+</html>
