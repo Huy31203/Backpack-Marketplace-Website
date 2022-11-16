@@ -88,6 +88,7 @@ function clearCart() {
   cartLists = [];
   localStorage.setItem("CartList", JSON.stringify(cartLists));
   renderCartList(cartLists);
+  totalMoney();
   AmountProducts();
   if (cartLists === null || cartLists.length == 0) {
     ProductCartHeaderPlace.innerHTML = "";
@@ -129,6 +130,7 @@ quantityWrapper.forEach((quantity) => {
       });
       localStorage.setItem("CartList", JSON.stringify(lists));
       totalMoney();
+      AmountProducts();
     });
   });
 
@@ -146,6 +148,7 @@ quantityWrapper.forEach((quantity) => {
       localStorage.setItem("CartList", JSON.stringify(lists));
       console.log(cartLists);
       totalMoney();
+      AmountProducts();
     });
   });
 
@@ -161,6 +164,7 @@ quantityWrapper.forEach((quantity) => {
         } else i++;
         localStorage.setItem("CartList", JSON.stringify(lists));
         totalMoney();
+        AmountProducts();
       });
     });
   });
