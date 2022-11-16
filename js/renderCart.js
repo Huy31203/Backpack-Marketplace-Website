@@ -71,16 +71,16 @@ const proceedCheckout = document.querySelector(".cart-list__checkout-wrapper");
 clearCartBtn.addEventListener("click", clearCart);
 proceedCheckout.addEventListener("click", () => {
   let flag = localStorage.getItem("flag");
-  if (flag == 0) {
+  if (flag == 1) {
+    clearCart();
+    totalMoney();
+    ProductCartHeaderPlace.innerHTML = "";
+  } else {
     window.scrollTo({
       top: 0,
       behavior: "instant",
     });
     document.querySelector(".login-form").style.display = "block";
-  } else {
-    clearCart();
-    totalMoney();
-    ProductCartHeaderPlace.innerHTML = "";
   }
 });
 

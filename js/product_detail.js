@@ -1,6 +1,7 @@
 import products from "./productList.js";
 import QuantityChangeHandler from "./QuantityChangeHandler.js";
 import { AddToCartHovered } from "./AddToCartHoveredHandler.js";
+import AmountProducts from "./AmountProductsHandler.js";
 
 let htmlString = ``;
 
@@ -9,6 +10,8 @@ const productID = parseInt(params.get("id"));
 
 const similarProduct = document.querySelector(".similar-product__wrapper");
 const ProductDetailPlace = document.querySelector(".product-detail");
+
+AmountProducts();
 
 function renderProducts(products) {
   htmlString = `
@@ -92,6 +95,7 @@ function addToCart_func() {
       localStorage.setItem("CartList", JSON.stringify(cartProducts));
     }
   }
+  AmountProducts();
 }
 
 const plus = document.querySelector(".plus");
