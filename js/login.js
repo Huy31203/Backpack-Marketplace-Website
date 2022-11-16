@@ -81,10 +81,10 @@ function signin(user_inp, pass_inp) {
           "rgba(255, 89, 89, 0.438)";
         document.getElementById("pass-inp").style.animation = "shake 0.3s";
         setTimeout(() => {
-          document.getElementById("user-inp").style.backgroundColor = "red";
+          document.getElementById("user-inp").style.backgroundColor = "white";
           document.getElementById("user-inp").style.animation = "none";
 
-          document.getElementById("pass-inp").style.backgroundColor = "red";
+          document.getElementById("pass-inp").style.backgroundColor = "white";
           document.getElementById("pass-inp").style.animation = "none";
         }, 500);
       }
