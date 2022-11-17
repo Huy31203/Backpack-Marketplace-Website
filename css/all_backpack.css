@@ -281,7 +281,7 @@ body {
 }
 
 .pagination span:hover:not(.active) {
-    background-color: #a7ffaa;
+    background-color: #ffffff;
 }
 
 /* .pagination a:first-child {
