@@ -18,6 +18,8 @@ function countTotalPage(item, itemPerPage) {
   }
 }
 
+countTotalPage(item, itemPerPage);
+
 const productPlace = document.querySelector(".all-product-list");
 const paginationPlace = document.querySelector(".page-wrapper");
 const p1 = document.querySelector("#page1");
@@ -116,6 +118,8 @@ function renderListPage() {
   paginationPlace.innerHTML = pageString;
 }
 
+renderListPage();
+
 function changePage(products) {
   const pageList = document.querySelectorAll(".page-wrapper span");
   for (let i = 0; i < pageList.length; i++) {
@@ -132,6 +136,10 @@ function changePage(products) {
     });
   }
 }
+
+
+changePage(products);
+
 nextBtn.addEventListener("click", () => {
   if (end < item) {
     document.querySelector(`#page${currentPage}`).className = "page__item";
@@ -191,6 +199,8 @@ function byPrice(a, b) {
   else return 0;
 }
 
+sort(products);
+
 searchInp.addEventListener("keypress", function (event) {
   // If the user presses the "Enter" key on the keyboard
   if (event.key === "Enter") {
@@ -207,6 +217,7 @@ function search(value) {
   let count = 0;
   let searchedProduct = [];
   htmlString = ``;
+  productPlace.innerHTML = htmlString;
   products.forEach((p) => {
     let name = p.name.toUpperCase();
     if (value !== null && value != "") {
@@ -217,14 +228,15 @@ function search(value) {
     }
   });
   item = count;
-  countTotalPage(item, itemPerPage);
-  renderProducts(searchedProduct);
-  renderListPage();
-  changePage(searchedProduct);
-  sort(searchedProduct);
+  if (count > 0) {
+    countTotalPage(item, itemPerPage);
+    renderProducts(searchedProduct);
+    renderListPage();
+    changePage(searchedProduct);
+    sort(searchedProduct);
+    searchedProduct = [];
+  } else {
+    totalPage = 1;
+    renderListPage();
+  }
 }
-
-countTotalPage(item, itemPerPage);
-renderListPage();
-changePage(products);
-sort(products);

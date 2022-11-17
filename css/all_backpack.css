@@ -76,8 +76,6 @@ body {
 }
 
 .sort-menu {
-    margin-top: 7.5vh;
-    margin-right: 50px;
     font-size: 25px;
 }
 
@@ -103,6 +101,12 @@ body {
     height: 40px;
     white-space: nowrap;
     border-radius: 10px;
+}
+
+.sort-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #sortDesc:hover,
@@ -305,5 +309,13 @@ body {
 @media only screen and (max-width: 620px) {
     .all-product-list {
         grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .type{font-size: 1.5em}
+    #sort {
+        width: 80px;
+        height: 30px;
     }
 }
