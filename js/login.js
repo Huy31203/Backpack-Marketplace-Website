@@ -1,3 +1,4 @@
+const LOGINFORM = document.querySelector(".login-form");
 const SIGNINFORM = document.querySelector("#signin-form");
 const SIGNUPFORM = document.querySelector("#signup-form");
 const LOGOUTBTN = document.querySelector(".log-out");
@@ -67,9 +68,7 @@ function signin(user_inp, pass_inp) {
         localStorage.setItem("AccountID", i.toString());
         id = i;
         localStorage.setItem("flag", flag);
-        SIGNINFORM.style.display = "none";
-        SIGNUPFORM.style.display = "none";
-        LOGOUTBTN.style.display = "flex";
+        LOGINFORM.style.display = "none";
         location.reload();
         break;
       } else {
@@ -113,7 +112,7 @@ function logout() {
   LOGOUTBTN.style.display = "none";
   SIGNINFORM.style.display = "block";
   SIGNUPFORM.style.display = "block";
-  document.getElementById("login-btn-text").innerHTML = "Login/Sign up";
+  document.getElementById("login-btn-text").innerHTML = "Login";
   document.getElementById("user-inp").value = "";
   document.getElementById("pass-inp").value = "";
   document.getElementById("user-signup-inp").value = "";
