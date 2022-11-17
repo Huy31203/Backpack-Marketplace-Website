@@ -8,19 +8,21 @@ const forgot = document.querySelector("#forgot-pass");
 const searchInpMain = document.querySelector(".search-inp");
 const searchButtonMain = document.querySelector(".search-btn");
 
-document.querySelector(".navOn").addEventListener('click', navFunctionOn);
+document.querySelector(".navOn").addEventListener("click", navFunctionOn);
 
 function navFunctionOn() {
   document.body.classList.toggle("mobilenav-open");
 }
 
-document.querySelector(".navOff").addEventListener('click', navFunctionOff);
+document.querySelector(".navOff").addEventListener("click", navFunctionOff);
 
 function navFunctionOff() {
   document.body.classList.toggle("mobilenav-open");
 }
 
-document.querySelector("#signup-btn").addEventListener('click', signupShowFunction);
+document
+  .querySelector("#signup-btn")
+  .addEventListener("click", signupShowFunction);
 
 function signupShowFunction() {
   signIn.style.display = "none";
@@ -28,8 +30,12 @@ function signupShowFunction() {
   signUp.style.display = "block";
 }
 
-document.querySelector("#signin-btn").addEventListener('click', signupHiddenFunction);
-document.querySelector("#sign-up-submit").addEventListener('click', signupHiddenFunction);
+document
+  .querySelector("#signin-btn")
+  .addEventListener("click", signupHiddenFunction);
+document
+  .querySelector("#sign-up-submit")
+  .addEventListener("click", signupHiddenFunction);
 
 function signupHiddenFunction() {
   signUp.style.display = "none";
@@ -43,7 +49,7 @@ navLink.forEach((link) => {
   });
 });
 
-document.querySelector(".backontop").addEventListener('click', topFunction);
+document.querySelector(".backontop").addEventListener("click", topFunction);
 
 function topFunction() {
   window.scroll(0, 0);
@@ -75,6 +81,10 @@ searchInpMain.addEventListener("keypress", function (event) {
 });
 
 searchButtonMain.addEventListener("click", function (event) {
-  localStorage.setItem("SearchValue", searchInpMain.value);
-  window.location.href = "all_backpack.html";
+  if (!String(window.location.href).includes("all_backpack.html") ||
+    String(window.location.href).includes("female_backpack.html") ||
+    String(window.location.href).includes("male_backpack.html")) {
+    localStorage.setItem("SearchValue", searchInpMain.value);
+    window.location.href = "all_backpack.html";
+  }
 });

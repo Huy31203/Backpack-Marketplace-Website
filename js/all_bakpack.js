@@ -211,7 +211,9 @@ searchInp.addEventListener("keypress", function (event) {
   }
 });
 
-searchButton.addEventListener("click", search);
+searchButton.addEventListener("click", () => {
+  search(searchInp.value);
+});
 
 function search(value) {
   let count = 0;
