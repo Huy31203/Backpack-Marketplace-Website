@@ -26,7 +26,7 @@ input::-webkit-inner-spin-button {
 
 .product-detail__info {
     height: fit-content;
-    margin-right: 20px;
+    margin: 0 20px;
     border-bottom: 1px solid gray;
 }
 
@@ -76,9 +76,6 @@ input::-webkit-inner-spin-button {
     border: 1.5px solid black;
     width: fit-content;
     padding: 8px 30px;
-    margin-bottom: 10px;
-    margin-left: 30px;
-
 }
 
 .product-details__input-quantity {
@@ -115,9 +112,7 @@ input::-webkit-inner-spin-button {
     background-color: black;
     border: none;
     margin-left: 20px;
-    margin-top: 5px;
     padding: 15px 20px;
-    height: fit-content;
     width: fit-content;
     font-weight: bold;
     cursor: pointer;
@@ -171,8 +166,8 @@ input::-webkit-inner-spin-button {
 
 /* similar products */
 
-.similar-product a:visited {
-        color: black;
+.similar-product a {
+    color: black;
 }
 
 .type {

@@ -258,7 +258,7 @@ body {
 }
 
 .pagination span {
-    background-color: rgba(229, 253, 220, 0.459);
+    background-color: rgb(255, 255, 255);
     color: black;
     float: left;
     padding: .5em .8em;
@@ -281,7 +281,8 @@ body {
 }
 
 .pagination span:hover:not(.active) {
-    background-color: #ffffff;
+    background-color: rgb(166, 255, 166);
+    border: 1px solid transparent;
 }
 
 /* .pagination a:first-child {

@@ -48,9 +48,7 @@ renderProducts(products);
 
 const addToCart = document.querySelector(".product-details__add-btn");
 
-
 addToCart.addEventListener("click", addToCart_func);
-
 
 function addToCart_func() {
   let quantity = parseInt(
@@ -151,9 +149,8 @@ renderSimilarProducts(products);
 const addBtns = document.querySelectorAll(".fa-cart-plus");
 
 addBtns.forEach((addBtn) => {
-  addBtn.addEventListener('click', () => {
+  addBtn.addEventListener("click", () => {
     AddToCartHovered(addBtn);
   });
 });
 
-QuantityChangeHandler();

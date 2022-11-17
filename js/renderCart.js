@@ -14,6 +14,7 @@ AmountProducts();
 
 if (cartLists === null || cartLists.length == 0) {
   ProductCartHeaderPlace.innerHTML = "";
+  document.querySelector(".cart-list__payment-wrapper").innerHTML = "";
 }
 
 function renderCartList(cartLists) {
