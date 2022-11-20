@@ -1,7 +1,8 @@
 const LOGINFORM = document.querySelector(".login-form");
 const SIGNINFORM = document.querySelector("#signin-form");
 const SIGNUPFORM = document.querySelector("#signup-form");
-const LOGOUTBTN = document.querySelector(".log-out");
+const LOGOUT = document.querySelector(".log-out");
+const LOGOUTBTN = document.querySelector(".log-out-btn");
 
 let accounts = [];
 let id = -1;
@@ -17,21 +18,29 @@ const handleSubmit = (event) => {
 window.addEventListener("load", (event) => {
   flag = localStorage.getItem("flag");
   accounts = JSON.parse(localStorage.getItem("AccountList"));
+
   if (accounts === null) {
     accounts = [
       {
         user: "huy",
         pass: "1234",
+        isAdmin: true,
       },
     ];
     localStorage.setItem("AccountList", JSON.stringify(accounts));
   }
-  id = parseInt(localStorage.getItem("AccountID"));
+
   if (flag == 1) {
+    let account = JSON.parse(localStorage.getItem("AccountID"));
     SIGNINFORM.style.display = "none";
     SIGNUPFORM.style.display = "none";
-    document.getElementById("login-btn-text").innerHTML = accounts[id].user;
-    LOGOUTBTN.style.display = "flex";
+    document.getElementById("login-btn-text").innerHTML =
+      accounts[account.id].user;
+    LOGOUT.style.display = "flex";
+
+    if (account.isAdmin) {
+      document.querySelector(".setting-btn").setAttribute("aria-hidden", false);
+    }
   }
 });
 
@@ -43,6 +52,7 @@ function signup() {
   let accountObject = {
     user: document.getElementById("user-signup-inp").value,
     pass: document.getElementById("pass-signup-inp").value,
+    isAdmin: false,
   };
   accounts.push(accountObject);
   localStorage.setItem("AccountList", JSON.stringify(accounts));
@@ -65,7 +75,11 @@ function signin(user_inp, pass_inp) {
       if (accounts[i].pass == pass_inp) {
         // alert("login")
         flag = 1;
-        localStorage.setItem("AccountID", i.toString());
+        let account = {
+          id: i,
+          isAdmin: accounts[i].isAdmin,
+        };
+        localStorage.setItem("AccountID", JSON.stringify(account));
         id = i;
         localStorage.setItem("flag", flag);
         LOGINFORM.style.display = "none";
@@ -106,10 +120,10 @@ function signin(user_inp, pass_inp) {
   }
 }
 
-document.querySelector(".log-out").addEventListener("click", logout);
+LOGOUTBTN.addEventListener("click", logout);
 
 function logout() {
-  LOGOUTBTN.style.display = "none";
+  LOGOUT.style.display = "none";
   SIGNINFORM.style.display = "block";
   SIGNUPFORM.style.display = "block";
   document.getElementById("login-btn-text").innerHTML = "Login";
@@ -119,5 +133,6 @@ function logout() {
   document.getElementById("pass-signup-inp").value = "";
   flag = 0;
   localStorage.setItem("flag", flag);
+  localStorage.removeItem("AccountID");
   location.reload();
 }

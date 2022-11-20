@@ -438,33 +438,39 @@ nav {
     min-height: 3rem;
     font-size: 18px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     display: none;
     z-index: 2;
+    padding-block: 8px;
 }
 
-.log-out:hover {
+.log-out-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.5rem;
+    width: 90%;
+}
+
+.setting-btn[aria-hidden = "true"] {
+    display: none;
+}
+
+.setting-btn[aria-hidden = "false"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.5rem;
+    width: 90%;
+}
+
+.log-out-btn:hover,
+.setting-btn:hover {
     background-color: rgb(66, 253, 97);
     color: white;
-    transition-duration: 300ms;
-}
-
-.log-out::before {
-    content: "";
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    top: -4%;
-    left: 20%;
-    transform: rotate(45deg);
-    background-color: rgb(228,228,228,228, 0.7);
-    z-index: -1;
-}
-
-.log-out:hover:before {
-    background-color: rgb(66, 253, 97, 0.7);
     transition-duration: 300ms;
 }
 
