@@ -9,6 +9,7 @@
     color: white;
 }
 
+.setting-setting-toggle a,
 .setting-setting-toggle a:visited {
     color: white;
 }
@@ -33,7 +34,7 @@
 .user-btn:hover,
 .product-btn:hover,
 .home-btn:hover,
-.log-out-btn:hover i{
+.log-out-btn:hover i {
     color: rgb(104, 224, 93);
 }
 
@@ -42,16 +43,77 @@
 }
 
 .setting-section {
-    min-height: 600px;
+    min-height: 300px;
 }
 
 
-@media (width <= 590px) {
+@media (width <=590px) {
     .setting-toggle__item {
         font-size: 15px;
     }
 
     .setting-toggle__list {
         padding-block: 15px;
+    }
+}
+
+/* Account */
+.setting-section {
+    width: 100%;
+}
+
+.type {
+    width: 80%;
+    text-align: center;
+    border-bottom: 1px solid #000;
+    line-height: 0.1em;
+    margin-top: 2em;
+    margin-left: 10%;
+}
+
+.type span {
+    padding: 0 10px;
+    background-color: rgb(221, 219, 219);
+}
+
+.setting-section__accounts-wrapper {
+    margin-block: 5em;
+    margin-inline: 3em;
+}
+
+.setting-section__account-wrapper {
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5em;
+    margin-block: 1em;
+    padding-block: 10px;
+    padding-inline: 20px;
+    border: 1px solid gray;
+}
+
+.setting-section__delete-btn-wrapper {
+    background-color: black;
+    color: white;
+    font-size: .8em;
+    padding: 15px;
+    text-transform: uppercase;
+    border-radius: 20px;
+}
+
+.setting-section__delete-btn-wrapper:active {
+    background-color: rgb(104, 224, 93);
+}
+
+@media (width > 620px) {
+    .setting-section__accounts-wrapper {
+        margin-inline: 10em;
+    }
+}
+
+@media (width > 1080px) {
+    .setting-section__accounts-wrapper {
+        margin-inline: 20em;
     }
 }

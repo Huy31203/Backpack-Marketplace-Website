@@ -22,17 +22,22 @@
     <header>
         <div class="setting-setting-toggle">
             <ul class="setting-toggle__list">
-                <li class="setting-toggle__item">   
-                    <span class="user-btn">User</span>
+                <li class="setting-toggle__item">
+                    <a href="/setting.html?p=user">
+                        <span class="user-btn">User</span>
+                    </a>
                 </li>
                 <li class="setting-toggle__item">
-                    <span class="product-btn">Products</span>
+                    <a href="/setting.html?p=product">
+                        <span class="product-btn">Products</span>
+                    </a>
                 </li>
-                <li class="setting-toggle__item">   
+                <li class="setting-toggle__item">
                     <a href="index.html"><span class="home-btn"><i class="fa-solid fa-house"></i></span></a>
                 </li>
                 <li class="setting-toggle__item">
-                    <a href="index.html"><span class="log-out-btn"><i class="fa-solid fa-right-from-bracket"></i></span></a>
+                    <a href="index.html"><span class="log-out-btn"><i
+                                class="fa-solid fa-right-from-bracket"></i></span></a>
                 </li>
             </ul>
         </div>
@@ -42,7 +47,8 @@
     </header>
 
     <section class="setting-section">
-
+        <h1 class="type"><span class="type-text"></span></h1>
+        <div class="setting-section__accounts-wrapper"></div>
     </section>
 
     <!-- Footer -->
@@ -94,6 +100,7 @@
     </footer>
 
     <script type="module" src="js/setting.js"></script>
+    <script type="module" src="js/renderSetting.js"></script>
 </body>
 
 </html>
