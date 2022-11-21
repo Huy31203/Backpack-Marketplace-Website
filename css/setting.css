@@ -1,12 +1,17 @@
 @import url(header.css);
 @import url(footer.css);
 
+.setting-section {
+    position: relative;
+}
+
 .setting-setting-toggle {
     width: 100%;
     display: flex;
     justify-content: center;
     background-color: black;
     color: white;
+    top: 0;
 }
 
 .setting-setting-toggle a,
@@ -43,7 +48,7 @@
 }
 
 .setting-section {
-    min-height: 300px;
+    min-height: 500px;
 }
 
 
@@ -57,10 +62,12 @@
     }
 }
 
-/* Account */
-.setting-section {
+.setting-wrapper {
     width: 100%;
+    position: relative;
 }
+
+/* Account */
 
 .type {
     width: 80%;
@@ -116,4 +123,165 @@
     .setting-section__accounts-wrapper {
         margin-inline: 20em;
     }
+}
+
+/* Products */
+.setting-section__add-btn-wrapper {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(92, 92, 92);
+    width: fit-content;
+    font-size: 1.2em;
+    padding-block: .7em;
+    padding-inline: 1.2em;
+    border-radius: 10px;
+    float: right;
+    margin-right: 8em;
+    cursor: pointer;
+}
+
+.setting-section__add-btn-wrapper:active {
+    border: 1px solid transparent;
+    background-color: rgb(104, 224, 93);
+    color: white;
+}
+
+.setting-section__products-wrapper {
+    margin: 0 auto;
+    width: 80%;
+    padding-bottom: 3em;
+}
+
+.setting-section__product-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em;
+    border-bottom: 1px solid gray;
+}
+
+.setting-section__info-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.setting-section__img-wrapper {
+    max-width: 10em;
+    max-height: 10em;
+    padding-right: 2em;
+}
+
+.setting-section__img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.setting-section__meta-wrapper {
+    font-size: 1.2em;
+}
+
+.setting-section__meta-price {
+    padding-top: 1.5em;
+}
+
+.setting-section__btn-wrapper {
+    text-transform: uppercase;
+    font-size: 1.25em;
+}
+
+.setting-section__delete-btn,
+.setting-section__update-btn {
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.setting-section__delete-btn:active,
+.setting-section__update-btn:active {
+    background-color: rgb(104, 224, 93);
+    transition-duration: 10ms;
+}
+
+.setting-section__delete-btn {
+    padding: .6em;
+    margin-right: .5em;
+}
+
+.setting-section__update-btn {
+    padding: .6em;
+    margin-left: .5em;
+}
+
+@media (width <=1180px) {
+    .setting-section__meta-wrapper {
+        max-width: 15em;
+    }
+}
+
+@media (width <=910px) {
+    .setting-section__add-btn-wrapper {
+        top: 2.5%;
+    }
+
+    .setting-section__img-wrapper {
+        max-width: 20em;
+        max-height: 20em;
+        padding: 0;
+    }
+
+    .setting-section__product-wrapper {
+        flex-direction: column;
+    }
+
+    .setting-section__info-wrapper {
+        flex-direction: column;
+        padding-bottom: 1.5em;
+    }
+
+    .setting-section__meta-wrapper {
+        text-align: center;
+    }
+
+    .setting-section__product-wrapper {
+        padding-block: 2em;
+    }
+}
+
+/* Products Manage */
+
+.setting-section__manage-wrapper[aria-hidden="true"] {
+    display: none;
+}
+
+.setting-section__manage-wrapper[aria-hidden="true"]+.setting-section__bg-blur {
+    display: none;
+}
+
+.setting-section__manage-wrapper[aria-hidden="false"] {
+    display: block;
+    height: 80%;
+    width: 80%;
+    background-color: white;
+    z-index: 100;
+    position: fixed;
+    top: 10%;
+    left: 10%;
+}
+
+.setting-section__manage-wrapper[aria-hidden="false"]+.setting-section__bg-blur {
+    display: block;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    opacity: 0.4;
+}
+
+.setting-section__manage-close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
 }
