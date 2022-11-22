@@ -154,7 +154,7 @@ function renderProducts(products) {
             .value.toString()
             .replace(/\B(?=(\d{3})+(?!\d))/g, ".")}.000`;
           let product = {
-            id: updateBtn.id,
+            id: Number(updateBtn.id),
             name: document.querySelector("#name-inp").value,
             img: document.querySelector(".upload-img").getAttribute("src"),
             desc: document.querySelector("#desc-inp").value,
