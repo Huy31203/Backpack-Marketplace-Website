@@ -105,7 +105,7 @@ function renderProducts(products) {
         // console.log(products, newProduct);
         localStorage.setItem("ProductList", JSON.stringify(products));
         updateProducts(0, 0);
-        ManageControlHidden(true);
+        window.location.reload();
       }
     });
   });
@@ -172,7 +172,7 @@ function renderProducts(products) {
           console.log(products);
           localStorage.setItem("ProductList", JSON.stringify(products));
           updateProducts(0, 0);
-          ManageControlHidden(true);
+          window.location.reload();
         }
       });
     });
