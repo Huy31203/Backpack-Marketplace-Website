@@ -1,4 +1,9 @@
 const backontop = document.querySelector(".backontop");
+const accountID = JSON.parse(localStorage.getItem("AccountID"));
+
+if (accountID === null || accountID.isAdmin == false) {
+  window.location.href = "/index.html";
+}
 
 document.querySelector(".backontop").addEventListener("click", topFunction);
 

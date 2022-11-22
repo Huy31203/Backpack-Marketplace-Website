@@ -158,7 +158,9 @@ nav {
     border-radius: 10%;
 }
 
-.nav__list .search-container .search-btn:hover {background: rgb(88, 88, 88)}
+.nav__list .search-container .search-btn:hover {
+    background: rgb(88, 88, 88)
+}
 
 #main-img {
     width: 100%;
@@ -197,11 +199,11 @@ nav {
     box-shadow: -2px -2px 5px -4px;
 }
 
-.login-form::before {
+#signin-form::before {
     content: "";
     position: absolute;
-    width: 20em;
-    height: 21em;
+    max-width: 20em;
+    max-height: 21em;
     top: 0;
     left: -12%;
     z-index: -1;
@@ -219,6 +221,16 @@ nav {
     border-bottom: 4px solid transparent;
     border-right: 4px solid transparent;
     z-index: -2;
+}
+
+.log-out::before {
+    content: "";
+    position: absolute;
+    width: 9.5em;
+    height: 7em;
+    top: -0.4;
+    left: -16%;
+    z-index: -1;
 }
 
 .login-btn:hover {
@@ -458,11 +470,11 @@ nav {
     padding: 0;
 }
 
-.setting-btn[aria-hidden = "true"]{
+.setting-btn[aria-hidden="true"] {
     display: none;
 }
 
-.setting-btn[aria-hidden = "false"] {
+.setting-btn[aria-hidden="false"] {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -471,7 +483,7 @@ nav {
 }
 
 .log-out-btn:hover,
-.setting-btn:hover{
+.setting-btn:hover {
     background-color: rgb(66, 253, 97);
     color: white;
     transition-duration: 300ms;
@@ -644,7 +656,7 @@ nav {
         margin-right: 2px;
         width: 8em;
     }
-    
+
     .toggle__item {
         margin: 0;
     }
@@ -654,4 +666,3 @@ nav {
         align-items: center;
     }
 }
-

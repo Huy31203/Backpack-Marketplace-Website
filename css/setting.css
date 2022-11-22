@@ -1,6 +1,11 @@
 @import url(header.css);
 @import url(footer.css);
 
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
 .setting-section {
     position: relative;
 }
@@ -261,10 +266,12 @@
 
 .setting-section__manage-wrapper[aria-hidden="false"] {
     display: block;
+    border: 1px solid rgb(0, 0, 0);
     height: 80%;
     width: 80%;
     background-color: white;
     z-index: 100;
+    overflow-y: scroll;
     position: fixed;
     top: 10%;
     left: 10%;
@@ -281,7 +288,90 @@
 }
 
 .setting-section__manage-close {
-    position: absolute;
-    right: 15px;
-    top: 10px;
+    position: fixed;
+    width: 80%;
+    background-color: hsl(0, 0%, 34%);
+    display: flex;
+    justify-content: flex-end;
+    padding-block: 10px;
+    padding-right: 15px;
+}
+
+.fa-xmark {
+    color: hsl(0, 0%, 100%);
+}
+
+.manage-product {
+    width: 86%;
+    margin-inline: 6%;
+    font-size: 1.3em;
+    line-height: 2em;
+}
+
+.manage-product-inp {
+    padding-block: 1em;
+}
+
+.name-inp-wrapper {
+    margin-top: 40px;
+}
+
+#name-inp,
+#desc-inp,
+#fPrice-inp,
+#price-inp {
+    width: 100%;
+    padding: 8px;
+    color: black;
+}
+
+.img-inp-wrapper {
+    width: fit-content;
+    height: fit-content;
+}
+
+#img-inp {
+    width: 100%;
+}
+
+
+#img-lb {
+    max-width: 400px;
+    max-height: 400px;
+    display: block;
+    cursor: pointer;
+    border: 1px solid gray;
+}
+
+#img-lb svg {
+    padding-inline: 10%;
+    padding-block: 5%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#img-lb img {
+    padding: 10%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.submit-btn-wrapper {
+    margin: 0 auto;
+    width: 60%;
+    margin-block: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.submit-btn-wrapper:hover,
+.submit-btn-wrapper:active {
+    background-color: rgb(104, 224, 93);
 }
