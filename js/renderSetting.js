@@ -102,7 +102,7 @@ function renderProducts(products) {
           Price: price,
         };
         products.push(newProduct);
-        // console.log(products);
+        // console.log(products, newProduct);
         localStorage.setItem("ProductList", JSON.stringify(products));
         updateProducts(0, 0);
         ManageControlHidden(true);
@@ -188,6 +188,7 @@ function renderProducts(products) {
 
 function updateProducts(pos, amount) {
   products.splice(pos, amount);
+  console.log(products);
   localStorage.setItem("ProductList", JSON.stringify(products));
   renderProducts(products);
 }
