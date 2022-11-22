@@ -72,32 +72,35 @@ function renderProducts(products) {
 
   const addBtn = document.querySelector(".setting-section__add-btn-wrapper");
   addBtn.addEventListener("click", () => {
+    let flag = 0;
     ManageControlHidden(false);
     const createBtn = document.querySelector(".submit-btn-wrapper");
     document.querySelector(".submit-btn").innerHTML = "Create";
 
     createBtn.addEventListener("click", () => {
-      let fPrice = `${document
-        .querySelector("#fPrice-inp")
-        .value.toString()
-        .replace(/\B(?=(\d{3})+(?!\d))/g, ".")}.000`;
-      let price = `${document
-        .querySelector("#price-inp")
-        .value.toString()
-        .replace(/\B(?=(\d{3})+(?!\d))/g, ".")}.000`;
-      let newProduct = {
-        id: products.length + 1,
-        name: document.querySelector("#name-inp").value,
-        img: document.querySelector(".upload-img").getAttribute("src"),
-        desc: document.querySelector("#desc-inp").value,
-        firstPrice: fPrice,
-        Price: price,
-      };
-      products.push(newProduct);
-      // console.log(products);
-      localStorage.setItem("ProductList", products);
-      updateProducts(0, 0);
-      ManageControlHidden(true);
+      if (flag == 0) {
+        let fPrice = `${document
+          .querySelector("#fPrice-inp")
+          .value.toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ".")}.000`;
+        let price = `${document
+          .querySelector("#price-inp")
+          .value.toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ".")}.000`;
+        let newProduct = {
+          id: products.length + 1,
+          name: document.querySelector("#name-inp").value,
+          img: document.querySelector(".upload-img").getAttribute("src"),
+          desc: document.querySelector("#desc-inp").value,
+          firstPrice: fPrice,
+          Price: price,
+        };
+        products.push(newProduct);
+        // console.log(products);
+        localStorage.setItem("ProductList", products);
+        updateProducts(0, 0);
+        ManageControlHidden(true);
+      }
     });
   });
 
@@ -114,42 +117,56 @@ function renderProducts(products) {
   const updateBtns = document.querySelectorAll(".setting-section__update-btn");
   updateBtns.forEach((updateBtn) => {
     updateBtn.addEventListener("click", () => {
+      let flag = 1;
       ManageControlHidden(false);
       const update = document.querySelector(".submit-btn-wrapper");
       document.querySelector(".submit-btn").innerHTML = "Update";
-      
+
       document.querySelector("#name-inp").value =
         products[updateBtn.id - 1].name;
       document.querySelector(
         "#img-lb"
-      ).innerHTML = `<img class="upload-img" src="${products[updateBtn.id - 1].img
+      ).innerHTML = `<img class="upload-img" src="${
+        products[updateBtn.id - 1].img
       }" alt="Uploaded Image">`;
-      document.querySelector("#desc-inp").value = products[updateBtn.id - 1].desc;
-      document.querySelector("#fPrice-inp").value = ((products[updateBtn.id - 1].firstPrice).split(".").join("")).slice(0, -3);
-      document.querySelector("#price-inp").value = ((products[updateBtn.id - 1].Price).split(".").join("")).slice(0, -3);
-      
+      document.querySelector("#desc-inp").value =
+        products[updateBtn.id - 1].desc;
+      document.querySelector("#fPrice-inp").value = products[
+        updateBtn.id - 1
+      ].firstPrice
+        .split(".")
+        .join("")
+        .slice(0, -3);
+      document.querySelector("#price-inp").value = products[
+        updateBtn.id - 1
+      ].Price.split(".")
+        .join("")
+        .slice(0, -3);
+
       update.addEventListener("click", () => {
-        let fPrice = `${document
-          .querySelector("#fPrice-inp")
-          .value.toString()
-          .replace(/\B(?=(\d{3})+(?!\d))/g, ".")}.000`;
-        let price = `${document
-          .querySelector("#price-inp")
-          .value.toString()
-          .replace(/\B(?=(\d{3})+(?!\d))/g, ".")}.000`;
-        let product = {
-          id: updateBtn.id,
-          name: document.querySelector("#name-inp").value,
-          img: document.querySelector(".upload-img").getAttribute("src"),
-          desc: document.querySelector("#desc-inp").value,
-          firstPrice: fPrice,
-          Price: price,
-        };
-        products[product.id - 1] = product;
-        // console.log(products);
-        localStorage.setItem("ProductList", products);
-        updateProducts(0, 0);
-        ManageControlHidden(true);
+        if (flag == 1) {
+          let fPrice = `${document
+            .querySelector("#fPrice-inp")
+            .value.toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ".")}.000`;
+          let price = `${document
+            .querySelector("#price-inp")
+            .value.toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ".")}.000`;
+          let product = {
+            id: updateBtn.id,
+            name: document.querySelector("#name-inp").value,
+            img: document.querySelector(".upload-img").getAttribute("src"),
+            desc: document.querySelector("#desc-inp").value,
+            firstPrice: fPrice,
+            Price: price,
+          };
+          products[product.id - 1] = product;
+          // console.log(products);
+          localStorage.setItem("ProductList", products);
+          updateProducts(0, 0);
+          ManageControlHidden(true);
+        }
       });
     });
 
@@ -160,7 +177,7 @@ function renderProducts(products) {
       ManageControlHidden(true);
     });
   });
-};
+}
 
 function updateProducts(pos, amount) {
   products.splice(pos, amount);
