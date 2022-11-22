@@ -103,7 +103,7 @@ function renderProducts(products) {
         };
         products.push(newProduct);
         // console.log(products);
-        localStorage.setItem("ProductList", c);
+        localStorage.setItem("ProductList", JSON.stringify(products));
         updateProducts(0, 0);
         ManageControlHidden(true);
       }
