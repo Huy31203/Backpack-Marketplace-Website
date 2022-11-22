@@ -97,7 +97,7 @@ function renderProducts(products) {
         };
         products.push(newProduct);
         // console.log(products);
-        localStorage.setItem("ProductList", products);
+        localStorage.setItem("ProductList", c);
         updateProducts(0, 0);
         ManageControlHidden(true);
       }
@@ -162,8 +162,8 @@ function renderProducts(products) {
             Price: price,
           };
           products[product.id - 1] = product;
-          // console.log(products);
-          localStorage.setItem("ProductList", products);
+          console.log(products);
+          localStorage.setItem("ProductList", JSON.stringify(products));
           updateProducts(0, 0);
           ManageControlHidden(true);
         }
