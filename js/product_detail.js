@@ -30,6 +30,17 @@ function renderProducts(products) {
             }<span class="currency">₫</span></span>
         </div>
         <div class="product-detail__desc">${products[productID - 1].desc}</div>
+        <div class="product-detail__color-wrapper">
+          <div class="product-detail__color">
+              <select name="color" id="color">
+  `;
+  products[productID - 1].colors.forEach((color) => {
+    htmlString += `<option class="color-otp" value="${color}">&nbsp ${color} &nbsp</option>`;
+  });
+  htmlString += `
+              </select>
+          </div>
+        </div>
         <div class="product-details__buy-wrapper">
             <div class="product-details__quantity">
                 <span class="product-details__btn-quantity minus">-</span>
@@ -54,6 +65,7 @@ function addToCart_func() {
   let quantity = parseInt(
     document.querySelector(".product-details__input-quantity").value
   );
+  let color = document.querySelector("#color").value;
   let flag = 1;
   let cartProducts = JSON.parse(localStorage.getItem("CartList"));
   if (cartProducts === null) {
@@ -63,6 +75,7 @@ function addToCart_func() {
         img: products[productID - 1].img,
         name: products[productID - 1].name,
         desc: products[productID - 1].desc,
+        color,
         firstPrice: products[productID - 1].firstPrice,
         Price: products[productID - 1].Price,
         Quantity: quantity,
@@ -73,11 +86,11 @@ function addToCart_func() {
   } else {
     for (let i = 0; i < cartProducts.length; i++) {
       if (cartProducts[i].id == productID) {
-        if (quantity >= 1) {
+        if (cartProducts[i].color == color) {
           cartProducts[i].Quantity += quantity;
           localStorage.setItem("CartList", JSON.stringify(cartProducts));
+          flag = 0;
         }
-        flag = 0;
       }
     }
     if (flag) {
@@ -86,6 +99,7 @@ function addToCart_func() {
         img: products[productID - 1].img,
         name: products[productID - 1].name,
         desc: products[productID - 1].desc,
+        color,
         firstPrice: products[productID - 1].firstPrice,
         Price: products[productID - 1].Price,
         Quantity: quantity,
@@ -153,4 +167,3 @@ addBtns.forEach((addBtn) => {
     AddToCartHovered(addBtn);
   });
 });
-

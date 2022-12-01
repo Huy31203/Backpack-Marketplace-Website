@@ -65,6 +65,16 @@ input::-webkit-inner-spin-button {
     line-height: 50px;
 }
 
+.product-detail__color-wrapper {
+    margin-left: 1.3em;
+}
+
+#color {
+    color: black;
+    padding-block: 10px;
+    border-radius: 10px;
+}
+
 .product-details__buy-wrapper {
     display: flex;
     margin-top: 3em;

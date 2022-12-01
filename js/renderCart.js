@@ -20,7 +20,7 @@ if (cartLists === null || cartLists.length == 0) {
 function renderCartList(cartLists) {
   htmlString = ``;
 
-  cartLists.forEach((cartList) => {
+  cartLists.forEach((cartList, idx) => {
     htmlString += `
         <tr class="cart-list__row" id="${cartList.id}">
             <td class="cart-list__image">
@@ -37,6 +37,21 @@ function renderCartList(cartLists) {
                     <span id="${cartList.id}" class="cart-list__btn-quantity plus">+</span>
                 </div>
             </td>
+            <td>
+              <div class="cart-list__color-wrapper">
+                <div class="cart-list__color">
+                  <select name="color" id="color" data-id="${idx}">
+    `;
+    products[cartList.id].colors.forEach((color) => {
+      htmlString += `<option class="color-otp" value="${color}" ${
+        color == cartList.color ? "selected" : ""
+      }>&nbsp ${color} &nbsp</option>`;
+    });
+    htmlString += `
+                  </select>
+                </div>
+              </div>
+            </td>
             <td class="cart-list__delete-icon">
                 <span>
                     <i class="fa-solid fa-trash fa-2x" id ="${cartList.id}"></i>
@@ -47,6 +62,13 @@ function renderCartList(cartLists) {
   });
   //   console.log(htmlString);
   ProductCartPlace.innerHTML = htmlString;
+  let colorBtns = document.querySelectorAll("#color");
+  colorBtns.forEach((colorBtn) => {
+    colorBtn.addEventListener("change", (color) => {
+      cartLists[Number(colorBtn.dataset.id)].color = color.target.value;
+      localStorage.setItem("CartList", JSON.stringify(cartLists));
+    });
+  });
 
   const deleteProducts = document.querySelectorAll(".fa-trash");
   deleteProducts.forEach((deleteProduct) => {
@@ -108,7 +130,9 @@ function clearCart() {
 function totalMoney() {
   let total = 0;
   cartLists.forEach((cartList) => {
-    total += cartList.Price.split(".").join("") * cartList.Quantity;
+    if (cartList.Quantity >= 1) {
+      total += cartList.Price.split(".").join("") * cartList.Quantity;
+    }
   });
   TotalMoneyPlace.innerHTML = total
     .toString()
@@ -156,7 +180,6 @@ quantityWrapper.forEach((quantity) => {
         } else i++;
       });
       localStorage.setItem("CartList", JSON.stringify(lists));
-      console.log(cartLists);
       totalMoney();
       AmountProducts();
     });
@@ -169,13 +192,15 @@ quantityWrapper.forEach((quantity) => {
       lists = JSON.parse(localStorage.getItem("CartList"));
       lists.forEach((list) => {
         if (list.id == Number(minus.id)) {
-          list.Quantity--;
-          cartLists[i].Quantity--;
+          if (list.Quantity > 1) {
+            list.Quantity--;
+            cartLists[i].Quantity--;
+          }
         } else i++;
         localStorage.setItem("CartList", JSON.stringify(lists));
-        totalMoney();
-        AmountProducts();
       });
+      totalMoney();
+      AmountProducts();
     });
   });
 });

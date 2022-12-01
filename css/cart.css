@@ -118,6 +118,13 @@ th {
     margin-right: 10px;
 }
 
+.cart-list__color-wrapper {
+}
+
+#color {
+    width: 80%;
+}
+
 .fa-trash {
     color: gray;
     cursor: pointer;
@@ -199,7 +206,7 @@ th {
     text-align: center;
 }
 
-@media only screen and (max-width: 730px) {
+@media only screen and (max-width: 900px) {
     .cart-list__row {
         display: block;
         border: 1px solid gray;
