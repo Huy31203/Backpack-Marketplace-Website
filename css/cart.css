@@ -118,11 +118,10 @@ th {
     margin-right: 10px;
 }
 
-.cart-list__color-wrapper {
-}
-
 #color {
-    width: 80%;
+    color: black;
+    width: fit-content;
+    padding-inline: 5px;
 }
 
 .fa-trash {
